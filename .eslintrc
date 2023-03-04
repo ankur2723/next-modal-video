@@ -13,7 +13,9 @@
     "comma-dangle":0
   },
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 8,
+    "requireConfigFile": false,
   },
-  "parser": "babel-eslint"
+  "parser": "@babel/eslint-parser"
 }
