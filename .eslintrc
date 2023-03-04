@@ -11,5 +11,9 @@
   },
   "rules":{
     "comma-dangle":0
-  }
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "parser": "babel-eslint"
 }
