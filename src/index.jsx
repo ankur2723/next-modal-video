@@ -111,15 +111,22 @@ export default class ModalVideo extends React.Component {
   }
 
   getVideoUrl(opt, videoId) {
-    if (opt.channel === 'youtube') {
-      return this.getYoutubeUrl(opt.youtube, videoId)
+    if (opt.channel === 'youtube') {      
+      return this.getYoutubeUrl(this.mapOverrideProps(opt.youtube, opt), videoId)
     } else if (opt.channel === 'vimeo') {
-      return this.getVimeoUrl(opt.vimeo, videoId)
+      return this.getVimeoUrl(this.mapOverrideProps(opt.vimeo, opt), videoId)
     } else if (opt.channel === 'youku') {
-      return this.getYoukuUrl(opt.youku, videoId)
+      return this.getYoukuUrl(this.mapOverrideProps(opt.youku, opt), videoId)
     } else if (opt.channel === 'custom') {
       return opt.url
     }
+  }
+
+  mapOverrideProps (defOpts, newOps) {
+    for (let key in defOpts) {
+      if (newOps[key]) defOpts[key] = newOps[key];
+    }
+    return defOpts;
   }
 
   getPadding(ratio) {
